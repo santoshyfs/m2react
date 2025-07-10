@@ -1,0 +1,21 @@
+name Deploy
+
+on
+  push
+    branches
+      - master
+
+jobs
+  build
+    name Build Started
+    runs-on ubuntu-latest
+
+    steps
+      - name Checkout repo
+        uses actions/checkout@v4
+
+      - name Setup Node
+        uses actions/setup-node@v4
+        
+      - name: Build project
+        run: npm run build
